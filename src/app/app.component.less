@@ -1,0 +1,107 @@
+@import "../less/app";
+
+.container:after{
+  content: "";
+  background: @azul;
+  position: absolute;
+  width: 100%;
+  height: 8rem;
+  z-index: -1;
+  top: 0;
+  left:0;
+}
+
+.cambiaTitulo{
+  margin-top: 1rem;
+  position: relative;
+  cursor: pointer;
+  text-align: left;
+  height: 4rem;
+  .fijo{
+    position: absolute;
+    top:0;
+    z-index: 3;
+    transition: opacity ease-in .19s;
+  }
+  h2{
+    color: @gris;
+    font-weight: 100;
+  }
+  input{
+    background: white;
+    opacity: 0;
+    display: none;
+    z-index: 2;
+  }
+}
+
+
+.c_cas{
+  position: relative;
+  width: 1.2rem;
+  input[type=checkbox]{
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    height: 1.4rem;
+    width: 1.4rem;
+    z-index: 5;
+    cursor: pointer;
+  }
+  input[type=checkbox]+label{
+    position: absolute;
+    height: 1.2rem;
+    width: 1.2rem;
+    background-color: @azul;
+    cursor: pointer;
+  }
+  input[type=checkbox]:checked+label{
+    background-image: @paloma;
+  }
+}
+
+.c_cas+p{
+  display: inline-block;
+  margin-left: 2rem!important;
+}
+
+.cambiaTitulo:hover{
+  h2{
+    opacity: 0;
+    display: none;
+    z-index: 2;
+  }
+  input{
+    display: initial;
+    opacity: 1;
+    z-index: 5
+  }
+}
+
+.formBody{
+  background-color: white;
+  border:1px solid @gris;
+  position: relative;
+  z-index: 8;
+  text-align: left;
+  padding: 2rem;
+}
+
+input.form-control.custom_b{
+  border: none;
+  border-bottom: 1px solid @gris;
+  border-radius: 0;
+  &:hover{
+    border-bottom-color: @azul;
+  }
+}
+
+.opciones_upper {
+  text-align: center;
+  a{
+    color: white;
+    cursor: pointer;
+    margin-top: 5rem;
+  }
+}

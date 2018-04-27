@@ -1,31 +1,67 @@
-<a (click)="addTexto()">Texto ( {{contador.texto}} )</a>
-<a (click)="addCasillas()">Casillas ( {{contador.casilla}} )</a>
-<a (click)="addDesplegable()">Desplegable ( {{contador.opciones}} )</a>
-
-<h2>{{encuestaName}}</h2>
-<input type="text" class="form-control" [(ngModel)]="encuestaName" /><br>
-
-
 <div class="container">
-  <ng-container  *ngFor="let campo of campos; let i = index" [ngSwitch]="campo.tipo">
 
-      <ng-template [ngSwitchCase]="'texto'">
-        <label>{{campo.texto}}</label><br>
-        <input type="text" class="form-control" placeholder="Escriba aquí"><br>
-      </ng-template>
+  <div class="row">
+    <div class="col-3">
 
-      <ng-template [ngSwitchCase]="'casilla'">
-        <input type="checkbox" value="false"> <label>{{campo.texto}}</label><br>
-      </ng-template>
+    </div>
+    <div class="col-6 opciones_upper">
+      <div class="row">
+        <a class="col-4" (click)="addTexto()">Texto({{contador.texto}}) </a>
+        <a class="col-4" (click)="addCasillas()">Casillas({{contador.casilla}}) </a>
+        <a class="col-4" (click)="addDesplegable()">Desplegable({{contador.opciones}}) </a>
+      </div>
+    </div>
+    <div class="col-3">
 
-      <ng-template [ngSwitchCase]="'opciones'">
-        <label>{{campo.texto}}</label><br>
-        <select name="{{campo.texto}}">
-          <option value="opcion1">opcion1</option>
-          <option value="opcion2">opcion2</option>
-          <option value="opcion3">opcion3</option>
-        </select><br>
-      </ng-template>
+    </div>
+  </div>
 
-  </ng-container>
+  <div class="row">
+    <div class="col-2">
+
+    </div>
+    <div class="col-8 formBody">
+
+      <div class="form-group cuerpo">
+
+        <div class="cambiaTitulo">
+          <h2 class="fijo">{{encuestaName}}</h2>
+          <input class="fijo" type="text" class="form-control" [(ngModel)]="encuestaName" /><br>
+        </div><br>
+
+
+          <ng-container  *ngFor="let campo of campos; let i = index" [ngSwitch]="campo.tipo">
+
+              <ng-template [ngSwitchCase]="'texto'">
+
+                  <label>{{campo.texto}}</label><br>
+                  <input type="text" class="form-control custom_b" placeholder="Escriba aquí"><br>
+
+              </ng-template>
+
+              <ng-template [ngSwitchCase]="'casilla'">
+                <div class="c_cas">
+                  <input type="checkbox" value="false">
+                  <label></label>
+                </div>
+                <p>{{campo.texto}}</p>
+              </ng-template>
+
+              <ng-template [ngSwitchCase]="'opciones'">
+                <label>{{campo.texto}}</label><br>
+                <select name="{{campo.texto}}">
+                  <option value="opcion1">opcion1</option>
+                  <option value="opcion2">opcion2</option>
+                  <option value="opcion3">opcion3</option>
+                </select><br>
+              </ng-template>
+
+          </ng-container>
+      </div>
+    </div>
+    <div class="col-2">
+
+    </div>
+  </div>
+
 </div>
